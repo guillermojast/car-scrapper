@@ -64,3 +64,4 @@ with open("mercadolibre_toyota_etios_listings.csv", "w", newline="", encoding="u
     writer.writerows(all_listings)
 
 print(f"Scraped {len(all_listings)} total listings and saved to 'mercadolibre_toyota_etios_listings.csv'")
+# test
