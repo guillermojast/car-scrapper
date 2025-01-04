@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import time
+from datetime import datetime
 
 # Define the base URL of the MercadoLibre filtered listings
 base_url = "https://autos.mercadolibre.com.ar/toyota/etios/toyota-etios_Desde_"
@@ -57,8 +58,12 @@ while True:
     start_record += step
     time.sleep(1)  # Pause for 1 second between requests
 
+# Get the current date for the file name
+current_date = datetime.now().strftime("%y%m%d")
+file_name = f"mercadolibre_toyota_etios_listings_{current_date}.csv"
+
 # Save all listings to a CSV file
-with open("mercadolibre_toyota_etios_listings.csv", "w", newline="", encoding="utf-8") as csvfile:
+with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["title", "price", "location", "year", "mileage", "link"])
     writer.writeheader()
     writer.writerows(all_listings)
