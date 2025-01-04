@@ -10,7 +10,7 @@ RETRIES = 3
 WAIT_SECONDS_MIN = 0.5
 WAIT_SECONDS_MAX = 2.0
 BRAND = "chevrolet"
-MODEL = "onix"
+MODEL = "captiva"
 
 # Function to scrape listings for a given brand and model
 def scrape_listings(brand, model):
@@ -77,7 +77,7 @@ def scrape_listings(brand, model):
 
     # Get current date for the filename
     current_date = datetime.now().strftime("%y%m%d")
-    file_name = f"mercadolibre_{brand}_{model}_listings_{current_date}.csv"
+    file_name = f"output/mercadolibre_{brand}_{model}_listings_{current_date}.csv"
 
     # Save all listings to a CSV file
     with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
